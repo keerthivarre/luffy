@@ -24,9 +24,7 @@ module.exports = React.createClass({
     );
   },
   playRecording: function(animal){
-    // AudioRecorder.playRecording();
      AudioPlayer.play(AudioUtils.DocumentDirectoryPath+'/'+animal+'.aac');
-    console.log('lion');
   }
 
 });
@@ -40,7 +38,7 @@ var styles = StyleSheet.create({
     height: null
   },
   imgwrapper: {
-    flexDirection: 'row',// takes 5/8ths of available space
+    flexDirection: 'row',
   justifyContent: 'space-around',
   alignItems: 'center',
 

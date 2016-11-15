@@ -27,51 +27,46 @@ module.exports = React.createClass({
     });
   },
   StartPress: function() {
-    let animal_name = this.props.name;
-    // let audioPath = AudioUtils.DocumentDirectoryPath+`/${animal_name}.aac`;
-    let audioPath = AudioUtils.DocumentDirectoryPath+'/'+{animal_name}+'.aac';
-
+    let audioPath = this.state.audioPath;
     this.prepareRecordingPath(audioPath);
       AudioRecorder.startRecording();
   },
-  // getInitialState: function() {
-  //   let index = this.props.index;
-  //   index: '';
-  //
-  //     return {
-  //   }
-  // },
-  render: function(){
+  getInitialState: function() {
+    let animal_name = this.props.name;
+      return {
+        audioPath: AudioUtils.DocumentDirectoryPath+'/'+animal_name+'.aac'
+    }
+  },
+  render: function() {
     // let animal1 = this.props.name[0];
     return (
-      <View>
+  <View>
    <Image  style={styles.imgwrapper}
      source={images()[this.props.name]}>
      </Image>
-
-        <View style = {styles.buttonwrapper}>
-          <Button text={'START'} onPress={this.StartPress} />
-          <Button text={'STOP'} onPress={this.stopRecording} />
-          <Button text={'PLAY'} onPress={this.playRecording} />
-          <Button text={'NEXT'} onPress={this.onNextPress} />
-        </View>
+     <View style = {styles.buttonwrapper}>
+       <Button text={'START'} onPress={this.StartPress} />
+       <Button text={'STOP'} onPress={this.stopRecording} />
+       <Button text={'PLAY'} onPress={this.playRecording} />
+       <Button text={'NEXT'} onPress={this.onNextPress} />
+     </View>
         </View>
   );
 
 },
-// onNextPress: function() {
-//
-// },
 stopRecording: function(){
   console.log("In stop recording");
   AudioRecorder.stopRecording();
 },
 
 playRecording: function(){
-  AudioPlayer.play(audioPath);
+  AudioPlayer.play(this.state.audioPath);
   console.log("In play recording");
 
 
+},
+goToHomepage: function() {
+  this.props.navigator.push({name: 'homepage'});
 }
 
 

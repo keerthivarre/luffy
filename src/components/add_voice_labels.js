@@ -22,18 +22,14 @@ module.exports = React.createClass({
 
     return (
       <Image source = {require('../img/forest.jpg')} style ={styles.container}>
-
           {animals.map(function(animal_name,index){
             return <Recording_voice name={animal_name} index={index}/>
 
           })
         }
         </Image>
-  );
-
-
-}
-
+      );
+    }
 });
 
 var styles = StyleSheet.create({
