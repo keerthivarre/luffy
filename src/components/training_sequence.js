@@ -46,7 +46,8 @@ gotoAddVoice: function() {
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent:'center',
+    // flexDirection: 'row',
+    justifyContent:'space-around',
     alignItems: 'center',
     width: null,
     height: null

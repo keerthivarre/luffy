@@ -34,25 +34,30 @@ module.exports = React.createClass({
   getInitialState: function() {
     let animal_name = this.props.name;
       return {
-        audioPath: AudioUtils.DocumentDirectoryPath+'/'+animal_name+'.aac'
+          index: 0,
+          audioPath: AudioUtils.DocumentDirectoryPath+'/'+animal_name+'.aac'
     }
   },
   render: function() {
-    // let animal1 = this.props.name[0];
+    var animal1 = this.props.name;
     return (
   <View>
-   <Image  style={styles.imgwrapper}
-     source={images()[this.props.name]}>
+   <Image style={styles.imgwrapper}
+     source={images()[this.props.name]} >
      </Image>
      <View style = {styles.buttonwrapper}>
        <Button text={'START'} onPress={this.StartPress} />
        <Button text={'STOP'} onPress={this.stopRecording} />
        <Button text={'PLAY'} onPress={this.playRecording} />
-       <Button text={'NEXT'} onPress={this.onNextPress} />
+       <Button text={'NEXT'} onPress ={this.onPress} />
      </View>
         </View>
   );
 
+},
+onPress: function(){
+  var animal1 = this.props.name;
+  console.log(animal1[this.state.index]);
 },
 stopRecording: function(){
   console.log("In stop recording");

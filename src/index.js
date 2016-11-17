@@ -10,13 +10,13 @@ var {
 var homepage = require('./components/homepage.js');
 var add_voice = require('./components/add_voice_labels.js');
 var training_sequence = require('./components/training_sequence.js');
-
-
+var test_sequence = require('./components/test_sequence.js');
 
 var ROUTES = {
   homepage: homepage,
   add_voice: add_voice,
   training:training_sequence,
+  test: test_sequence,
 };
 
 module.exports = React.createClass({

@@ -15,21 +15,19 @@ var {
 } = require('react-native');
 
 var Button = require('../common/button');
-var Test= require('./test_component.js');
-
+var images = require('./image_list.js');
 
 module.exports = React.createClass({
   render: function(){
-    let animals = ['monkey','rabbit','sheep'];
-
     return (
       <Image source = {require('../img/forest.jpg')} style ={styles.container}>
-      {animals.map(function(animal,index){
-        return <Test name={animal} index={index}/>
-
-      })
-    }
-
+      <TouchableHighlight key={this.props.index}  onPress={ () => this.playRecording('rabbit')}>
+      <Image source = {require('../img/rabbit.jpg')} style = {styles.image}>
+      </Image>
+      </TouchableHighlight>
+      <Image style= {styles.imgwrapper}
+      source = {images()[this.props.name]}>
+      </Image>
     </Image>
   );
 
@@ -37,6 +35,9 @@ module.exports = React.createClass({
 gotoAddVoice: function() {
   this.props.navigator.push({name: 'add_voice'});
 },
+playRecording: function(animal){
+   AudioPlayer.play(AudioUtils.DocumentDirectoryPath+'/'+animal+'.aac');
+}
 
 
 });
@@ -58,5 +59,9 @@ var styles = StyleSheet.create({
   buttonwrapper: {
     justifyContent: 'space-around',
     alignItems: 'center'
+  },
+  image: {
+    marginTop: 20,
+
   }
 });

@@ -35,6 +35,9 @@ gotoAddVoice: function() {
 gotoTraining: function() {
   this.props.navigator.push({name: 'training'});
 },
+gotoTest: function() {
+  this.props.navigator.push({name: 'test'});
+},
 });
 
 var styles = StyleSheet.create({
