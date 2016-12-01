@@ -49,8 +49,8 @@ module.exports = React.createClass({
        <Button text={'START'} onPress={this.StartPress} />
        <Button text={'STOP'} onPress={this.stopRecording} />
        <Button text={'PLAY'} onPress={this.playRecording} />
-       <Button text={'NEXT'} onPress ={this.onPress} />
      </View>
+     <Button text = {'BACK'} onPress={this.goToHomepage}
         </View>
   );
 

@@ -20,26 +20,48 @@ var Animal_display = require('./animal_display.js');
 
 
 module.exports = React.createClass({
+  getInitialState: function() {
+
+      this.state = {
+        index:0,
+
+      }
+      return this.state;
+  },
+  nextElements: function() {
+    let animals = ['monkey','rabbit','sheep'];
+    let index = this.state.index;
+    index++;
+    if(index >= animals.length){
+      index=0;
+    }
+    this.setState({index:index});
+    },
   render: function(){
     let animals = ['monkey','rabbit','sheep'];
 
     return (
-      <Image source = {require('../img/forest.jpg')} style ={styles.container}>
 
-          {animals.map(function(animal,index){
-            return <Animal_display name={animal} index={index}/>
+              <Image source = {require('../img/forest.jpg')} style ={styles.container}>
 
-          })
-        }
+              <Animal_display name={animals[this.state.index]} index={this.state.index}/>
+              <Button text = "NEXT" onPress = {this.nextElements}/>
+              </Image>
+              <Button text = {'BACK'} onPress={this.goToHomepage}
 
-    </Image>
-  );
+
+            );
+
+
+
 
 },
 gotoAddVoice: function() {
   this.props.navigator.push({name: 'add_voice'});
 },
-
+goToHomepage: function() {
+  this.props.navigator.push({name: 'homepage'});
+}
 
 });
 

@@ -26,7 +26,7 @@ buttonText: {
   fontFamily: 'copperplate',
   fontWeight: 'bold',
   fontSize: 18,
-  color: 'white'
+  color: 'blue'
 },
 button: {
   justifyContent: 'center',
