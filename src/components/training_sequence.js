@@ -47,7 +47,7 @@ module.exports = React.createClass({
               <Animal_display name={animals[this.state.index]} index={this.state.index}/>
               <Button text = "NEXT" onPress = {this.nextElements}/>
               </Image>
-              <Button text = {'BACK'} onPress={this.goToHomepage}
+              <Button text = {'BACK'} onPress={this.goToHomepage}/>
 
 
             );
