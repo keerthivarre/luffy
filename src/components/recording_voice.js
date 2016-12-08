@@ -26,8 +26,11 @@ module.exports = React.createClass({
       AudioEncodingBitRate: 32000
     });
   },
+  getAudioRecordingPath: function() {
+    return AudioUtils.DocumentDirectoryPath+'/'+this.props.name+'.aac'
+  },
   StartPress: function() {
-    let audioPath = this.state.audioPath;
+    let audioPath = this.getAudioRecordingPath();
     this.prepareRecordingPath(audioPath);
       AudioRecorder.startRecording();
   },
@@ -50,7 +53,6 @@ module.exports = React.createClass({
        <Button text={'STOP'} onPress={this.stopRecording} />
        <Button text={'PLAY'} onPress={this.playRecording} />
      </View>
-     <Button text = {'BACK'} onPress={this.goToHomepage}
         </View>
   );
 
@@ -65,13 +67,10 @@ stopRecording: function(){
 },
 
 playRecording: function(){
-  AudioPlayer.play(this.state.audioPath);
+  AudioPlayer.play(this.getAudioRecordingPath());
   console.log("In play recording");
 
 
-},
-goToHomepage: function() {
-  this.props.navigator.push({name: 'homepage'});
 }
 
 
