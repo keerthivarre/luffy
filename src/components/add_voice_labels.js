@@ -8,7 +8,8 @@ var {
   AppRegistry,
   StyleSheet,
   TouchableHighlight,
-  Image
+  Image,
+  Navigator,
 } = require('react-native');
 
 var Button = require('../common/button');
@@ -33,18 +34,21 @@ module.exports = React.createClass({
   },
 
   render: function(){
-    let animals = ['monkey','rabbit','sheep'];
+    let animals = ['monkey','rabbit','sheep','elephant','lion','goat'];
 
     return (
-          // <Image source = {require('../img/forest.jpg')} style ={styles.container}>
-          <View>
-             <Recording_voice name={animals[this.state.index]} index={this.state.index}/>
-             <Button text="next" onPress={this.nextImage} />
-             </View>
-          // </Image>
+      <Image source = {require('../img/forest.jpg')} style ={styles.container}>
+
+      <Recording_voice name={animals[this.state.index]} index={this.state.index}/>
+      <Button text = {'BACK'} onPress={this.goToHomepage}/>
+      <Button text = "NEXT" onPress = {this.nextImage}/>
+      </Image>
 
 
       );
+    },
+    goToHomepage: function() {
+      this.props.navigator.push({name: 'homepage'});
     }
 
 
