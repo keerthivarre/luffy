@@ -30,7 +30,7 @@ module.exports = React.createClass({
       return this.state;
   },
   nextElements: function() {
-    let animals = ['monkey','rabbit','sheep'];
+    let animals = ['monkey','rabbit','sheep','elephant','lion','goat'];
     let index = this.state.index;
     index++;
     if(index >= animals.length){
@@ -42,15 +42,12 @@ module.exports = React.createClass({
     let animals = ['monkey','rabbit','sheep','elephant','lion','goat'];
 
     return (
-      <View>
-              <Image source = {require('../img/forest.jpg')} style ={styles.container}>
+      <Image source = {require('../img/forest.jpg')} style ={styles.container}>
 
-              <Animal_display name={animals[this.state.index]} index={this.state.index}/>
-              <Button text = "NEXT" onPress = {this.nextElements}/>
-              <Button text = {'BACK'} onPress={this.goToHomepage}/>
-
-              </Image>
-            </View>
+      <Animal_display name={animals[this.state.index]} index={this.state.index}/>
+      <Button text = {'BACK'} onPress={this.goToHomepage}/>
+      <Button text = "NEXT" onPress = {this.nextElements}/>
+      </Image>
 
             );
 
