@@ -19,15 +19,23 @@ import images from './image_list';
 
 module.exports = React.createClass({
   render: function(){
+    return(
+      <TouchableHighlight onPress={() => console.log(this.props.chosen)} >
+      <Image style= {styles.imgwrapper}
+      source = {images()[this.props.name]}>
+      </Image>
+      </TouchableHighlight>
+    )
+  },
+  render1: function(){
+
     return (
       <Image source = {require('../img/forest.jpg')} style ={styles.container}>
       <TouchableHighlight key={this.props.index}  onPress={ () => this.playRecording('rabbit')}>
       <Image source = {require('../img/rabbit.jpg')} style = {styles.image}>
       </Image>
       </TouchableHighlight>
-      <Image style= {styles.imgwrapper}
-      source = {images()[this.props.name]}>
-      </Image>
+
     </Image>
   );
 

@@ -3,7 +3,7 @@
 
 var React = require('react');
 var {AudioRecorder,AudioPlayer, AudioUtils} = require('react-native-audio');
-
+import {animalList} from './image_list'
 
 var {
   Text,
@@ -19,13 +19,23 @@ var Test= require('./test_component.js');
 
 
 module.exports = React.createClass({
-  render: function(){
-    let animals = ['monkey','rabbit','sheep'];
+  getInitialState: function(){
+    return {animalChosen:0,  animals:animalList.slice(0,4)}
+  },
 
+
+  changeAnimalChosen: function(){
+    this.setState({animalChosen:Math.floor(Math.random() * this.state.animals.length)});
+  },
+  render: function(){
+
+    let animalChosen = this.state.animalChosen;
     return (
       <Image source = {require('../img/forest.jpg')} style ={styles.container}>
-      {animals.map(function(animal,index){
-        return <Test name={animal} index={index}/>
+      <Button text={"Reload"} onPress= {() => this.changeAnimalChosen() } />
+
+      {this.state.animals.map(function(animal,index){
+        return <Test name={animal} index={index} chosen={ animalChosen == index}/>
 
       })
     }
