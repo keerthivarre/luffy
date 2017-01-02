@@ -15,7 +15,7 @@ var {
 } = require('react-native');
 
 var Button = require('../common/button');
-var images = require('./image_list.js');
+import images from './image_list';
 
 module.exports = React.createClass({
   render: function(){

@@ -1,6 +1,7 @@
 'use strict';
 // import {AudioRecorder,AudioPlayer, AudioUtils} from 'react-native-audio';
 
+import {animalList} from './image_list'
 var React = require('react');
 var {AudioRecorder,AudioPlayer, AudioUtils} = require('react-native-audio');
 
@@ -30,21 +31,21 @@ module.exports = React.createClass({
       return this.state;
   },
   nextElements: function() {
-    let animals = ['monkey','rabbit','sheep','elephant','lion','goat'];
+  //  let animals = ['monkey','rabbit','sheep','elephant','lion','goat'];
     let index = this.state.index;
     index++;
-    if(index >= animals.length){
+    if(index >= animalList.length){
       index=0;
     }
     this.setState({index:index});
     },
   render: function(){
-    let animals = ['monkey','rabbit','sheep','elephant','lion','goat'];
+    //let animals = ['monkey','rabbit','sheep','elephant','lion','goat'];
 
     return (
       <Image source = {require('../img/forest.jpg')} style ={styles.container}>
 
-      <Animal_display name={animals[this.state.index]} index={this.state.index}/>
+      <Animal_display name={animalList[this.state.index]} index={this.state.index}/>
       <Button text = {'BACK'} onPress={this.goToHomepage}/>
       <Button text = "NEXT" onPress = {this.nextElements}/>
       </Image>

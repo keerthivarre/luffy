@@ -1,6 +1,6 @@
 'use strict';
 var React = require('react');
-
+import images from './image_list.js'
 
 var {
   Text,
@@ -13,7 +13,7 @@ var {
 } = require('react-native');
 
 var Button = require('../common/button');
-var images = require('./image_list.js');
+
 import {AudioPlayer,AudioRecorder,AudioUtils} from 'react-native-audio';
 
 module.exports = React.createClass({
@@ -43,6 +43,7 @@ module.exports = React.createClass({
   },
   render: function() {
     var animal1 = this.props.name;
+    console.log(animal1);
     return (
   <View>
    <Image style={styles.imgwrapper}

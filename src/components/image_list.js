@@ -1,8 +1,8 @@
 
-var rabbitImage = require('../img/rabbit.jpg');
+export const animalList = ['monkey','rabbit','sheep','elephant','lion','goat'];
 
 
-module.exports = () => {
+export default function  ()  {
   return(
     {
       rabbit: require('../img/rabbit.jpg'),

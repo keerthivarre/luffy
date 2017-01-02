@@ -1,4 +1,5 @@
 'use strict';
+import  animals,{animalList} from './image_list'
 var React = require('react');
 
 
@@ -14,7 +15,7 @@ var {
 
 var Button = require('../common/button');
 var Recording_voice = require('./recording_voice.js');
-
+// var animals,{animalList} = require('./image_list')
 
 
 module.exports = React.createClass({
@@ -27,19 +28,21 @@ module.exports = React.createClass({
   nextImage: function(){
     let index = this.state.index;
     index++;
-    if(index > 2){
+    if(index > 5){
       index=0;
     }
     this.setState({index:index});
   },
 
   render: function(){
-    let animals = ['monkey','rabbit','sheep','elephant','lion1','goat'];
+  console.log(animalList);
+
+    //let animals = ['monkey','rabbit','sheep','elephant','lion','goat'];
 
     return (
       <Image source = {require('../img/forest.jpg')} style ={styles.container}>
 
-      <Recording_voice name={animals[this.state.index]} index={this.state.index}/>
+      <Recording_voice name={animalList[this.state.index]} index={this.state.index}/>
       <Button text = {'BACK'} onPress={this.goToHomepage}/>
       <Button text = "NEXT" onPress = {this.nextImage}/>
       </Image>

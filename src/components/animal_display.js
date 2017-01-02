@@ -8,13 +8,15 @@ var {
   Image,
   TouchableHighlight
 } = require('react-native');
-var images = require('./image_list.js');
+import images from './image_list.js'
 
 import {AudioRecorder,AudioPlayer, AudioUtils} from 'react-native-audio';
 
 
 module.exports = React.createClass({
   render: function() {
+    //this plays the recording whenever the image is rendered without clicking on the image
+    this.playRecording(this.props.name);
     return (
       <TouchableHighlight key={this.props.index}  onPress={ () => this.playRecording(this.props.name)}>
       <Image style= {styles.imgwrapper}
