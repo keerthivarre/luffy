@@ -34,7 +34,7 @@ module.exports = React.createClass({
   },
 
   render: function(){
-    let animals = ['monkey','rabbit','sheep','elephant','lion','goat'];
+    let animals = ['monkey','rabbit','sheep','elephant','lion1','goat'];
 
     return (
       <Image source = {require('../img/forest.jpg')} style ={styles.container}>
