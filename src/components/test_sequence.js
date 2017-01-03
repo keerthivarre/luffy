@@ -4,6 +4,8 @@
 var React = require('react');
 var {AudioRecorder,AudioPlayer, AudioUtils} = require('react-native-audio');
 import {animalList} from './image_list'
+import {playRecording} from '../common/recording'
+import {getRandomChosenAnimal, getRandomSelectionOfAnimals} from '../common/randomAnimal';
 
 var {
   Text,
@@ -20,23 +22,34 @@ var Test= require('./test_component.js');
 
 module.exports = React.createClass({
   getInitialState: function(){
-    return {animalChosen:0,  animals:animalList.slice(0,4)}
+    return {animalChosen:'',  animals:animalList, animalSelection:[]}
   },
 
 
   changeAnimalChosen: function(){
-    this.setState({animalChosen:Math.floor(Math.random() * this.state.animals.length)});
+  //  let animalChosen = getRandomChosenAnimal(this.state.animals);
+    let animalSelection = getRandomSelectionOfAnimals(animalList);
+    this.setState({//animalChosen: animalChosen,
+                  //animalsAlreadyChosen:this.state.animalsAlreadyChosen.add(animalChosen),
+                  animalSelection: animalSelection});
+
+  //  this.setState({animalChosen:Math.floor(Math.random() * this.state.animals.length)});
   },
   render: function(){
+    let random = Math.floor(Math.random()*4);
+    console.log(random);
+    let animalChosen = this.state.animalSelection[random];
+    playRecording(animalChosen);
+    let animals = this.state.animalSelection;
 
-    let animalChosen = this.state.animalChosen;
+    //animals.add(this.state.animalChosen);
+    console.log(animals);
     return (
       <Image source = {require('../img/forest.jpg')} style ={styles.container}>
       <Button text={"Reload"} onPress= {() => this.changeAnimalChosen() } />
 
-      {this.state.animals.map(function(animal,index){
-        return <Test name={animal} index={index} chosen={ animalChosen == index}/>
-
+      {animals.map(function(animal,index){
+        return <Test name={animal} index={index} chosen={ animalChosen === animal}/>
       })
     }
 
