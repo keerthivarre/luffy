@@ -47,9 +47,9 @@ module.exports = React.createClass({
     return (
       <Image source = {require('../img/forest.jpg')} style ={styles.container}>
       <Button text={"Reload"} onPress= {() => this.changeAnimalChosen() } />
-
-      {animals.map(function(animal,index){
-        return <Test name={animal} index={index} chosen={ animalChosen === animal}/>
+      {
+      animals.map(function(animal,index){
+        return <Test name={animal} key={index} chosen={ animalChosen === animal}/>
       })
     }
 

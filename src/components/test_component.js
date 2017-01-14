@@ -31,7 +31,7 @@ module.exports = React.createClass({
 
     return (
       <Image source = {require('../img/forest.jpg')} style ={styles.container}>
-      <TouchableHighlight key={this.props.index}  onPress={ () => this.playRecording('rabbit')}>
+      <TouchableHighlight  onPress={ () => this.playRecording('rabbit')}>
       <Image source = {require('../img/rabbit.jpg')} style = {styles.image}>
       </Image>
       </TouchableHighlight>
