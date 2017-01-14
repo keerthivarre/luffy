@@ -10,7 +10,8 @@
     "react": "15.3.2",
     "react-native": "0.37.0",
     "react-native-audio": "^2.2.0",
-    "react-native-permissions": "^0.2.5"
+    "react-native-permissions": "^0.2.5",
+    "react-native-swiper": "^1.5.4"
   },
   "jest": {
     "preset": "jest-react-native"

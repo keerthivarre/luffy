@@ -24,6 +24,7 @@ module.exports = React.createClass({
           <Button text={'ADD VOICE LABELS'} onPress={this.gotoAddVoice} />
           <Button text={'START training'} onPress={this.gotoTraining} />
           <Button text={'START TEST SEQUENCE'} onPress={this.gotoTest} />
+          <Button text={'Try this'} onPress={this.gotoTry} />
         </View>
     </Image>
   );
@@ -38,6 +39,10 @@ gotoTraining: function() {
 gotoTest: function() {
   this.props.navigator.push({name: 'test'});
 },
+gotoTry: function() {
+  this.props.navigator.push({name: 'try'});
+},
+
 });
 
 var styles = StyleSheet.create({
